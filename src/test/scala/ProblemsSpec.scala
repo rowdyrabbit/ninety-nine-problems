@@ -36,4 +36,15 @@ class ProblemsSpec extends FlatSpec with Matchers {
     Problems.isPalindrome(list) should be (false)
   }
 
+  "The 'append' function" should "append two lists" in {
+    val list1 = List(1,2,3)
+    val list2 = List(4,5,6)
+    Problems.append(list1, list2) should be (List(1,2,3,4,5,6))
+  }
+
+  "The 'flatten' function" should "flatten a list of lists into a list" in {
+    val listOfLists = List(List(1,2,3), List(4,5,6))
+    Problems.flatten(listOfLists) should be (List(1, 2, 3, 4, 5, 6))
+  }
+
 }
