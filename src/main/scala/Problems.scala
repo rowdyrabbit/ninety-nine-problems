@@ -1,3 +1,4 @@
+import sun.font.TrueTypeFont
 
 object Problems {
 
@@ -29,6 +30,22 @@ object Problems {
   // Problem 5
   def reverse(list: List[Int]): List[Int] = {
     list.foldLeft(List[Int]()) {(revList, curr) => curr :: revList}
+  }
+
+  // Problem 6
+  def isPalindrome(list: List[Int]): Boolean = {
+    //split the list in 2, discarding the middle element if the list contains an odd number of elems
+    //reverse the second half of the list
+    //compare the two lists
+    val half = list.length / 2
+    list.length match {
+      case 0 => true
+      case _ => {
+        val left = list.take(half)
+        val right = list.takeRight(half).reverse
+        left.sameElements(right)
+      }
+    }
   }
 
 

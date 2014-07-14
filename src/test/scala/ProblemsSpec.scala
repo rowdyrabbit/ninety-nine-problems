@@ -26,4 +26,14 @@ class ProblemsSpec extends FlatSpec with Matchers {
     Problems.reverse(list) should be(List(5, 4, 3, 2, 1))
   }
 
+  "The 'palindrome' function" should "return true if the list is a palindrome" in {
+    val list = List(1, 2, 3, 0, 3, 2, 1)
+    Problems.isPalindrome(list) should be (true)
+  }
+
+  "The 'palindrome' function" should "return false if the list is not a palindrome" in {
+    val list = List(1, 2, 3, 0, 4, 2, 1)
+    Problems.isPalindrome(list) should be (false)
+  }
+
 }
