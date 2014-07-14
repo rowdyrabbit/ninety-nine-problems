@@ -20,4 +20,11 @@ Problems.flatten(List(List(1,1), List(2), List(3, List(5, 8))))
 
 
 Problems.compress(List('a', 'a', 'b', 'a', 'c', 'c'))
+Problems.pack(List('a', 'a', 'b', 'a', 'c', 'c'))
+
+
+
+
+
+
 

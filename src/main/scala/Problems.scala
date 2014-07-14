@@ -68,6 +68,21 @@ object Problems {
     }
   }
 
+  // Problem 9
+  def pack(list: List[Char]): List[List[Any]] = {
+    //like compress but instead of ignoring duplicates, make a new list
+    list.foldRight(List[List[Any]]()){(rightElem, packed) =>
+      //TODO: Re-write using pattern matching
+      if (packed.isEmpty || rightElem != packed.head.head ) {
+        List(rightElem) :: packed
+      }
+      else {
+        (rightElem :: packed.head) :: packed.tail
+      }
+    }
+  }
+
+
 
 
 
