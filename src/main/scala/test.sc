@@ -6,3 +6,5 @@ Problems.last(nums)
 
 
 Problems.penultimate(nums)
+
+Problems.nth(2, nums)

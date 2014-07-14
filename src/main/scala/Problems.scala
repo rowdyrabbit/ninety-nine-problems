@@ -13,9 +13,14 @@ object Problems {
   }
 
   // Problem 3
-//  def nth(index: Int, list: List[Int]): Int = {
-//
-//  }
+  def nth(index: Int, list: List[Int]): Int = {
+    list match {
+      case x::xs if (index == 0) => list.head
+      case x::xs if (index > 0) => nth(index -1, list.tail)
+      case _ => throw new NoSuchElementException
+    }
+
+  }
 
 
 }
