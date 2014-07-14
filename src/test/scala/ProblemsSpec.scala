@@ -16,4 +16,14 @@ class ProblemsSpec extends FlatSpec with Matchers {
     Problems.nth(2, list) should be (3)
   }
 
+  "The 'length' function" should "return the number of elements in the list" in {
+    val list = List(1,2,3,4,5)
+    Problems.length(list) should be (5)
+  }
+
+  "The 'reverse' function" should "reverse the order of elements in the list" in {
+    val list = List(1,2,3,4,5)
+    Problems.reverse(list) should be(List(5, 4, 3, 2, 1))
+  }
+
 }

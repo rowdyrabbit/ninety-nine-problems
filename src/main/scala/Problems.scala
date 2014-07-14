@@ -19,7 +19,16 @@ object Problems {
       case x::xs if (index > 0) => nth(index -1, list.tail)
       case _ => throw new NoSuchElementException
     }
+  }
 
+  // Problem 4
+  def length(list: List[Int]): Int = {
+    list.foldLeft(0) {(length, curr) => length + 1}
+  }
+
+  // Problem 5
+  def reverse(list: List[Int]): List[Int] = {
+    list.foldLeft(List[Int]()) {(revList, curr) => curr :: revList}
   }
 
 
