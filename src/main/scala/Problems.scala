@@ -49,16 +49,25 @@ object Problems {
   }
 
   // Problem 7
-  def append(list: List[Int], list2: List[Int]): List[Int] = {
+  def append(list: List[Any], list2: List[Any]): List[Any] = {
     // replace nil with cons in the first list and cons with cons
     list.foldRight(list2){(list1Elem, appList) => {println("list 1 element is: "+ list1Elem); list1Elem :: appList}}
   }
 
-  def flatten(list: List[List[Int]]): List[Int] = {
+  def flatten(list: List[List[Any]]): List[Any] = {
     // fold right over the list, replacing cons with append and nil with nil
-    list.foldRight(List[Int]()){(list1Elem, resultList) => {append(list1Elem, resultList)}
+    list.foldRight(List[Any]()){(list1Elem, resultList) => {append(list1Elem, resultList)}
     }
   }
+
+  // Problem 8
+  def compress(list: List[Char]): List[Char] = {
+    list.foldRight(List[Char]()){(rightElem, newList) =>
+      if (newList.isEmpty || rightElem != newList.head ) rightElem :: newList
+      else newList
+    }
+  }
+
 
 
 

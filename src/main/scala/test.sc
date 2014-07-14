@@ -13,3 +13,11 @@ Problems.append(List(1, 2, 3), List(4, 5, 6))
 
 
 
+Problems.flatten(List(List(1,1), List(2), List(3, List(5, 8))))
+
+
+
+
+
+Problems.compress(List('a', 'a', 'b', 'a', 'c', 'c'))
+

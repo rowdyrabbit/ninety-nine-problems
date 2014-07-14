@@ -47,4 +47,9 @@ class ProblemsSpec extends FlatSpec with Matchers {
     Problems.flatten(listOfLists) should be (List(1, 2, 3, 4, 5, 6))
   }
 
+  "The 'compress' function" should "remove all consecutive duplicates from a list" in {
+    val list = List('a', 'a', 'a', 'b', 'c', 'c', 'c')
+    Problems.compress(list) should be (List('a', 'b', 'c'))
+  }
+
 }
