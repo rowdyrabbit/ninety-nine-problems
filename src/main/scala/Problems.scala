@@ -1,5 +1,3 @@
-import sun.font.TrueTypeFont
-
 object Problems {
 
   // Problem 1
@@ -72,12 +70,10 @@ object Problems {
   def pack(list: List[Char]): List[List[Char]] = {
     //like compress but instead of ignoring duplicates, make a new list
     list.foldRight(List[List[Char]]()){(rightElem, packed) =>
-      //TODO: Re-write using pattern matching
-      if (packed.isEmpty || rightElem != packed.head.head ) {
-        List(rightElem) :: packed
-      }
-      else {
-        (rightElem :: packed.head) :: packed.tail
+      packed match {
+        case Nil => List(rightElem) :: packed
+        case x::xs if (rightElem != packed.head.head) => List(rightElem) :: packed
+        case _ => (rightElem :: packed.head) :: packed.tail
       }
     }
   }
