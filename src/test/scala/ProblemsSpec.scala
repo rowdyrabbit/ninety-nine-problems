@@ -52,4 +52,14 @@ class ProblemsSpec extends FlatSpec with Matchers {
     Problems.compress(list) should be (List('a', 'b', 'c'))
   }
 
+  "The 'pack' function" should "group all consecutive duplicates in a list" in {
+    val list = List('a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e')
+    Problems.pack(list) should be (List(List('a', 'a', 'a', 'a'), List('b'), List('c', 'c'), List('a', 'a'), List('d'), List('e', 'e', 'e', 'e')))
+  }
+
+  "The 'encode' function" should "count the number of consecutive occurrences of an element in a list" in {
+    val list = List('a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e')
+    Problems.encode(list) should be (List((4, 'a'), (1, 'b'), (2, 'c'), (2, 'a'), (1, 'd'), (4, 'e')))
+  }
+
 }

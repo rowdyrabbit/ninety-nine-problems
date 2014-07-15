@@ -69,9 +69,9 @@ object Problems {
   }
 
   // Problem 9
-  def pack(list: List[Char]): List[List[Any]] = {
+  def pack(list: List[Char]): List[List[Char]] = {
     //like compress but instead of ignoring duplicates, make a new list
-    list.foldRight(List[List[Any]]()){(rightElem, packed) =>
+    list.foldRight(List[List[Char]]()){(rightElem, packed) =>
       //TODO: Re-write using pattern matching
       if (packed.isEmpty || rightElem != packed.head.head ) {
         List(rightElem) :: packed
@@ -79,6 +79,14 @@ object Problems {
       else {
         (rightElem :: packed.head) :: packed.tail
       }
+    }
+  }
+
+  // Problem 10
+  def encode(list: List[Char]): List[(Int, Char)] = {
+    val packed = pack(list)
+    packed.foldRight(List[(Int, Char)]()){(firstGroup: List[Char],  encodedList: List[(Int, Char)]) =>
+      (firstGroup.length, firstGroup.head) :: encodedList
     }
   }
 
