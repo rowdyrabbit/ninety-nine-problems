@@ -12,11 +12,11 @@ object Problems {
   }
 
   // Problem 3
-  def nth(index: Int, list: List[Int]): Int = {
+  def nth(index: Int, list: List[Int]): Option[Int] = {
     list match {
-      case x::xs if (index == 0) => list.head
+      case x::xs if (index == 0) => Some(list.head)
       case x::xs if (index > 0) => nth(index -1, list.tail)
-      case _ => throw new NoSuchElementException
+      case _ => None
     }
   }
 
@@ -46,6 +46,12 @@ object Problems {
     }
   }
 
+  // Duh, reverse the whole list and compare!
+  def isPalindrome2(list: List[Int]): Boolean = {
+    list.sameElements(list.reverse)
+  }
+
+
   // Problem 7
   def append(list: List[Any], list2: List[Any]): List[Any] = {
     // replace nil with cons in the first list and cons with cons
@@ -54,8 +60,16 @@ object Problems {
 
   def flatten(list: List[List[Any]]): List[Any] = {
     // fold right over the list, replacing cons with append and nil with nil
-    list.foldRight(List[Any]()){(list1Elem, resultList) => {append(list1Elem, resultList)}
+    list.foldRight(List[Any]()){(list1Elem, resultList) => {
+        append(list1Elem, resultList)
+      }
     }
+  }
+
+  // An implementation which works!
+  def flatten2(ls: List[Any]): List[Any] = ls flatMap {
+    case ms: List[_] => flatten2(ms)
+    case e => List(e)
   }
 
   // Problem 8
@@ -86,6 +100,11 @@ object Problems {
     }
   }
 
+  //A simpler implementation with map
+  def encode2(list: List[Char]): List[(Int, Char)] = {
+    val packed = pack(list)
+    packed.map((g: List[Char]) => (g.length, g.head))
+  }
 
 
 
